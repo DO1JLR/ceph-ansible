@@ -3,7 +3,9 @@
   include_tasks: check_system.yml
 
 - name: validate repository variables in non-containerized scenario
+  include_tasks: check_repository.yml
   when: not containerized_deployment | bool
+<<<<<<< HEAD
   block:
     - name: validate ceph_origin
       fail:
@@ -32,6 +34,8 @@
         - ceph_origin == 'repository'
         - ceph_repository == 'rhcs'
         - ceph_repository_type not in ['cdn', 'iso']
+=======
+>>>>>>> 4f6da9d9 (ceph-validate: export validate repository vars as a task)
 
 - name: validate osd_objectstore
   fail:
